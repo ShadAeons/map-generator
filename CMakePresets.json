@@ -1,0 +1,35 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "g++",
+            "displayName": "g++ debug",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/g++",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+            }
+        },
+        {
+            "name": "emscripten",
+            "displayName": "Emscripten",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/wasm",
+            "toolchainFile": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "g++",
+            "configurePreset": "g++"
+        },
+        {
+            "name": "emscripten",
+            "configurePreset": "emscripten"
+        }
+    ]
+}
