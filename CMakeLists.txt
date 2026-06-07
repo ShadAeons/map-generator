@@ -14,11 +14,13 @@ add_executable(newworld
     src/core/bindings.cpp
 
     src/geometry/poisson.cpp
+    src/geometry/voronoi.cpp
     src/geometry/bindings.cpp
 
     src/world/bindings.cpp
 
     src/external/stb.cpp
+    src/external/voronoi.cpp
 
     src/render/image.cpp
 )
