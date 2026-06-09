@@ -3,13 +3,13 @@
 #include "core/vector2.h"
 #include "world/world.h"
 
+#include <cstdint>
 #include <vector>
 
-struct VoronoiDiagram {
+struct GeometryData {
     std::vector<Vector2> sites;
-    // to be optimised later by flattening the array to store vertices
     std::vector<std::vector<Vector2>> polygons;
     std::vector<std::vector<int>> neighbours;
 };
 
-VoronoiDiagram build_voronoi(const MapBounds &bounds, const std::vector<Vector2> &sites);
+GeometryData generate_geometry(const MapBounds &bounds, uint32_t seed, uint32_t n);
