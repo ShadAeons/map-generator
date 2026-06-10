@@ -50,7 +50,7 @@ namespace {
 
         const jcv_site *sites = jcv_diagram_get_sites(diagram);
 
-        for (uint32_t i = 0; i < diagram->numsites; ++i) {
+        for (int i = 0; i < diagram->numsites; ++i) {
             const jcv_site *site = &sites[i];
             int idx = site->index;
 

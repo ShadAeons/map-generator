@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/vector2.h"
-#include "world/world.h"
+#include "world/map_bounds.h"
 
 #include <cstdint>
 #include <vector>

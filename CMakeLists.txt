@@ -11,10 +11,12 @@ add_executable(newworld
 
     src/core/random.cpp
     src/core/vector2.cpp
-    src/core/bindings.cpp
-    src/geometry/geometry.cpp
-    src/geometry/bindings.cpp
 
+    src/geometry/geometry.cpp
+
+    src/terrain/terrain.cpp
+
+    src/world/world.cpp
     src/world/bindings.cpp
 
     src/external/stb.cpp
