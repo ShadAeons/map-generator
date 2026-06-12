@@ -9,6 +9,10 @@ World::World(const WorldBuildParams &params) : m_bounds(params.bounds), m_seed(p
     generate(params.n_cells);
 }
 
+const MapBounds &World::get_map_bounds() const {
+    return m_bounds;
+}
+
 const GeometryData &World::get_geometry() const {
     return m_geometry;
 }

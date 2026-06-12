@@ -7,10 +7,17 @@
 using namespace emscripten;
 
 static val js_get_render_data(const World &world) {
+    const MapBounds &map_bounds = world.get_map_bounds();
     const GeometryData &geometry = world.get_geometry();
     const TerrainData &terrain = world.get_terrain();
 
     val result = val::object();
+
+    // MapBounds JS representation
+    val bounds = val::object();
+    bounds.set("width", map_bounds.width);
+    bounds.set("height", map_bounds.height);
+    result.set("bounds", bounds);
 
     // GeometryData JS representation
     val sites = val::array();

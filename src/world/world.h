@@ -24,6 +24,7 @@ class World {
 public:
     World(const WorldBuildParams &params);
 
+    const MapBounds &get_map_bounds() const;
     const GeometryData &get_geometry() const;
     const TerrainData &get_terrain() const;
 
