@@ -1,0 +1,25 @@
+:root {
+    --font-inter: 'Inter', sans-serif;
+
+    --color-navy: #1a1f2e;
+    --color-navy-mid: #232a3d;
+    --color-navy-light: #2d3650;
+    --color-regent-grey: #8a96b0;
+    --color-pale-aqua: #c8d0e0;
+    --color-gold: #b8963e;
+}
+
+@theme inline {
+    --font-inter: var(--font-inter);
+
+    --color-navy: var(--color-navy);
+    --color-navy-mid: var(--color-navy-mid);
+    --color-navy-light: var(--color-navy-light);
+    --color-gold: var(--color-gold);
+    --color-regent-grey: var(--color-regent-grey);
+    --color-pale-aqua: var(--color-pale-aqua);
+
+    --color-border: rgb(from var(--color-gold) r g b / 0.18);
+    --color-text-dim: var(--color-regent-grey);
+    --color-text-main: var(--color-pale-aqua);
+}

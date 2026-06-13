@@ -1,6 +1,5 @@
-import type { World } from '../../types/World';
-import type { CanvasRenderer } from '../CanvasRenderer';
+import type { WorldRenderData } from '../../types/World';
 
 export interface Layer {
-    render: (renderer: CanvasRenderer, world: World) => void;
+    render(ctx: CanvasRenderingContext2D, world: WorldRenderData): void;
 }

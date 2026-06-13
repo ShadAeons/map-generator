@@ -1,11 +1,21 @@
 import type { Vector } from './Vector';
 
-export interface GeometryData {
-    sites: Vector[];
-    polygons: Vector[][];
-    neighbours: number[][];
+export interface MapBounds {
+    width: number;
+    height: number;
 }
 
-export interface World {
-    geometry: GeometryData;
+export interface WorldRenderData {
+    bounds: MapBounds;
+    sites: Vector[];
+    polygons: Vector[][];
+    heightmap: number[];
+}
+
+export interface WorldBuildParams {
+    bounds: MapBounds;
+    seed: number;
+    nCells: number;
+    falloffStrength: number;
+    warpStrength: number;
 }

@@ -1,1 +1,9 @@
+@import './fonts.css';
 @import 'tailwindcss';
+@import './variables.css';
+
+html,
+body {
+    background: var(--color-navy);
+    color: var(--color-pale-aqua);
+}

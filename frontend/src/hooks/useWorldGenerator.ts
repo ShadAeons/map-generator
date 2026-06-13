@@ -1,13 +1,15 @@
 import { useMemo } from 'react';
 import { useWorldModule } from './useWorldModule';
-import WorldGenerator from '../wasm/WorldGenerator';
+import { WorldGenerator } from '../wasm/WorldGenerator';
 
 export function useWorldGenerator() {
-    const module = useWorldModule();
+    const { module, loading, error } = useWorldModule();
 
-    return useMemo(() => {
+    const generator = useMemo(() => {
         if (!module) return null;
 
         return new WorldGenerator(module);
     }, [module]);
+
+    return { generator, loading, error };
 }
