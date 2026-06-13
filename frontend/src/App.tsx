@@ -31,6 +31,7 @@ export default function App() {
     const [falloffDivisor, setFalloffDivisor] = useState<number>(3);
     const [warpStrength, setWarpStrength] = useState<number>(1.5);
     const [seed, setSeed] = useState<number>(generateNewSeed());
+    const [currentSeed, setCurrentSeed] = useState<number>(seed);
 
     const [renderData, setRenderData] = useState<WorldRenderData | null>(null);
     useMapRenderer(canvasRef, renderData);
@@ -47,6 +48,8 @@ export default function App() {
         };
 
         const world = generator.generate(params);
+
+        setCurrentSeed(seed);
         setRenderData(world);
     };
 
@@ -172,7 +175,9 @@ export default function App() {
                     </div>
                 </Sidebar>
 
-                <div className="col-span-3 bg-navy-mid border-border border-t h-6"></div>
+                <div className="flex items-center col-span-3 bg-navy-mid px-4 border-border border-t h-6 text-xs">
+                    <p className="text-text-dim">Seed: {currentSeed}</p>
+                </div>
             </div>
         </>
     );
