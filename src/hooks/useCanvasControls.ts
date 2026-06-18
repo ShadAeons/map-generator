@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 import type Camera from '../renderer/Camera';
 import type MapRenderer from '../renderer/MapRenderer';
 import type { Vector } from '../types/Vector';
-
-const ZOOM_FACTOR = 1.12;
+import { ZOOM_FACTOR } from '../constants';
 
 export default function useCanvasControls(
     canvasRef: React.RefObject<HTMLCanvasElement | null>,
