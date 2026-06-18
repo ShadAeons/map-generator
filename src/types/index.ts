@@ -3,4 +3,11 @@ export interface Vector {
     y: number;
 }
 
+export interface Colour {
+    r: number;
+    g: number;
+    b: number;
+    a?: number;
+}
+
 export * from './world';

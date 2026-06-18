@@ -1,6 +1,7 @@
 import REGL, { type Buffer, type DrawCommand, type Regl } from 'regl';
 import type { WorldRenderData } from '../types';
 import type Camera from './Camera';
+import { DEFAULT_ELEVATION_STYLES } from '../constants';
 
 interface Attributes {
     a_position: Buffer;
@@ -13,18 +14,18 @@ interface Uniforms {
     u_resolution: [number, number];
 }
 
-const ELEVATION_STYLES: {
-    threshold: number;
-    colour: [number, number, number];
-}[] = [
-    { threshold: 0.3, colour: [42 / 255, 107 / 255, 156 / 255] },
-    { threshold: 0.4, colour: [58 / 255, 143 / 255, 191 / 255] },
-    { threshold: 0.45, colour: [194 / 255, 162 / 255, 88 / 255] },
-    { threshold: 0.6, colour: [90 / 255, 143 / 255, 60 / 255] },
-    { threshold: 0.75, colour: [61 / 255, 107 / 255, 40 / 255] },
-    { threshold: 0.9, colour: [122 / 255, 106 / 255, 90 / 255] },
-    { threshold: 1.0, colour: [232 / 255, 232 / 255, 232 / 255] },
-];
+// const ELEVATION_STYLES: {
+//     threshold: number;
+//     colour: [number, number, number];
+// }[] = [
+//     { threshold: 0.3, colour: [42 / 255, 107 / 255, 156 / 255] },
+//     { threshold: 0.4, colour: [58 / 255, 143 / 255, 191 / 255] },
+//     { threshold: 0.45, colour: [194 / 255, 162 / 255, 88 / 255] },
+//     { threshold: 0.6, colour: [90 / 255, 143 / 255, 60 / 255] },
+//     { threshold: 0.75, colour: [61 / 255, 107 / 255, 40 / 255] },
+//     { threshold: 0.9, colour: [122 / 255, 106 / 255, 90 / 255] },
+//     { threshold: 1.0, colour: [232 / 255, 232 / 255, 232 / 255] },
+// ];
 
 export default class MapRenderer {
     private _canvas: HTMLCanvasElement;
@@ -112,16 +113,16 @@ export default class MapRenderer {
     public buildMap(data: WorldRenderData) {
         const positions: number[] = [];
         const colours: number[] = [];
+        const styles = DEFAULT_ELEVATION_STYLES;
 
         for (let i = 0; i < data.sites.length; ++i) {
             const site = data.sites[i];
             const polygon = data.polygons[i];
             const elevation = data.heightmap[i];
 
-            const [r, g, b] =
-                ELEVATION_STYLES.find((s) => elevation <= s.threshold)
-                    ?.colour ??
-                ELEVATION_STYLES[ELEVATION_STYLES.length - 1].colour;
+            const { r, g, b } =
+                styles.find((s) => elevation <= s.threshold)?.colour ??
+                styles[styles.length - 1].colour;
 
             for (let j = 0; j < polygon.length; ++j) {
                 const curr = polygon[j];
