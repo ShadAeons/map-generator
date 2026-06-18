@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { loadWorldModule } from '../wasm/WorldModule';
+import { loadWorldModule, type WorldModule } from '../wasm/WorldModule';
 
 interface WorldModuleState {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    module: any | null;
+    module: WorldModule | null;
     loading: boolean;
     error: Error | null;
 }
