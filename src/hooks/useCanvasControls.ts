@@ -18,16 +18,17 @@ export default function useCanvasControls(
 
         let dragging = false;
         let lastMousePos: Vector | null = null;
-        let rendering = false;
+        let renderQueued = false;
+        let request = 0;
 
         // Only renders when possible
         const requestRender = () => {
-            if (rendering) return;
+            if (renderQueued) return;
 
-            rendering = true;
+            renderQueued = true;
 
-            requestAnimationFrame(() => {
-                rendering = false;
+            request = requestAnimationFrame(() => {
+                renderQueued = false;
                 renderer.render();
             });
         };
@@ -79,6 +80,7 @@ export default function useCanvasControls(
         canvas.addEventListener('wheel', zoom);
 
         return () => {
+            cancelAnimationFrame(request);
             canvas.removeEventListener('pointerdown', startDragging);
             window.removeEventListener('pointerup', stopDragging);
             window.removeEventListener('blur', stopDragging);
