@@ -1,5 +1,5 @@
 import type { WorldRenderData, WorldBuildParams } from '../types/World.js';
-import createWorldModule from './newworld.js';
+import createWorldGenModule from './worldgen.js';
 
 export interface WorldInstance {
     getRenderData(): WorldRenderData;
@@ -16,7 +16,7 @@ let modulePromise: Promise<WorldModule> | null = null;
 
 export function loadWorldModule() {
     if (!modulePromise) {
-        modulePromise = createWorldModule() as Promise<WorldModule>;
+        modulePromise = createWorldGenModule() as Promise<WorldModule>;
     }
 
     return modulePromise;

@@ -1,4 +1,4 @@
-const UINT32_MAX = Math.pow(2, 32) - 1;
+import { UINT32_MAX } from './constants';
 
 export function generateNewSeed() {
     return Math.floor(Math.random() * UINT32_MAX);
