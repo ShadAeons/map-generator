@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import type { WorldBuildParams } from '../../types';
 import { generateNewSeed } from '../../utils';
-import NumberInput from '../NumberInput';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
+
 import Button from '../Button';
+import NumberInput from '../NumberInput';
 import { GridLayout, GridRow } from '../../layouts/GridLayout';
 
 interface GeneratorInspectorProps {
@@ -12,10 +14,12 @@ interface GeneratorInspectorProps {
     onGenerate: (params: WorldBuildParams) => void;
 }
 
-function parseNumber(e: React.ChangeEvent<HTMLInputElement>, fallback: number) {
+function fallbackNumber(
+    e: React.ChangeEvent<HTMLInputElement>,
+    fallback: number
+) {
     const value = e.target.valueAsNumber;
     return isNaN(value) ? fallback : value;
-    // return e.target.valueAsNumber;
 }
 
 export default function GeneratorInspector({
@@ -37,7 +41,7 @@ export default function GeneratorInspector({
                             setBuildParams((p) => ({
                                 ...p,
                                 bounds: {
-                                    width: parseNumber(e, 100),
+                                    width: fallbackNumber(e, 100),
                                     height: p.bounds.height,
                                 },
                             }))
@@ -53,7 +57,7 @@ export default function GeneratorInspector({
                                 ...p,
                                 bounds: {
                                     width: p.bounds.width,
-                                    height: parseNumber(e, 100),
+                                    height: fallbackNumber(e, 100),
                                 },
                             }))
                         }
@@ -69,7 +73,7 @@ export default function GeneratorInspector({
                     onChange={(e) =>
                         setBuildParams((p) => ({
                             ...p,
-                            nCells: parseNumber(e, 1),
+                            nCells: fallbackNumber(e, 1),
                         }))
                     }
                 />
@@ -85,7 +89,7 @@ export default function GeneratorInspector({
                     onChange={(e) =>
                         setBuildParams((p) => ({
                             ...p,
-                            falloffStrength: e.target.valueAsNumber,
+                            falloffStrength: fallbackNumber(e, 0),
                         }))
                     }
                 />
@@ -100,7 +104,7 @@ export default function GeneratorInspector({
                     onChange={(e) =>
                         setBuildParams((p) => ({
                             ...p,
-                            warpStrength: parseNumber(e, 0),
+                            warpStrength: fallbackNumber(e, 0),
                         }))
                     }
                 />
@@ -115,7 +119,7 @@ export default function GeneratorInspector({
                         onChange={(e) =>
                             setBuildParams((p) => ({
                                 ...p,
-                                seed: parseNumber(e, generateNewSeed()),
+                                seed: fallbackNumber(e, generateNewSeed()),
                             }))
                         }
                     />
