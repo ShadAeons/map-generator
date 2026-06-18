@@ -1,2 +1,6 @@
-export * from './Vector';
-export * from './World';
+export interface Vector {
+    x: number;
+    y: number;
+}
+
+export * from './world';

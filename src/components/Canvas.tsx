@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import useMapRenderer from '../hooks/useMapRenderer';
-import type { WorldRenderData } from '../types/World';
 import useCanvasControls from '../hooks/useCanvasControls';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +8,7 @@ import {
     faMinus,
     faPlus,
 } from '@fortawesome/free-solid-svg-icons';
-import type { Vector } from '../types/Vector';
+import type { Vector, WorldRenderData } from '../types';
 import { CANVAS_PADDING, ZOOM_FACTOR } from '../constants';
 
 interface CanvasProps {

@@ -1,4 +1,4 @@
-import type { WorldRenderData } from '../../types/World';
+import type { WorldRenderData } from '../../types/world';
 import type { Layer } from './Layer';
 
 const ELEVATION_STYLES: {

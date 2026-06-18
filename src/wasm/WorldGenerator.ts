@@ -1,4 +1,4 @@
-import type { WorldRenderData, WorldBuildParams } from '../types/World';
+import type { WorldRenderData, WorldBuildParams } from '../types';
 import type { WorldModule } from './WorldModule';
 
 export class WorldGenerator {

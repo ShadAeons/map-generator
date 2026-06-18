@@ -1,5 +1,4 @@
-import type { Vector } from '../types/Vector';
-import type { MapBounds } from '../types/World';
+import type { MapBounds, Vector } from '../types';
 
 export default class Camera {
     private _position: Vector = { x: 0, y: 0 };

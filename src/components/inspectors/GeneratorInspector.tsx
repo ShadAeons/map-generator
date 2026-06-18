@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { WorldBuildParams } from '../../types/World';
+import type { WorldBuildParams } from '../../types';
 import { generateNewSeed } from '../../utils';
 import NumberInput from '../NumberInput';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

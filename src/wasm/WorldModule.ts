@@ -1,7 +1,7 @@
-import type { WorldRenderData, WorldBuildParams } from '../types/World.js';
+import type { WorldRenderData, WorldBuildParams } from '../types';
 import createWorldGenModule from './worldgen.js';
 
-export interface WorldInstance {
+interface WorldInstance {
     getRenderData(): WorldRenderData;
     delete(): void;
 }

@@ -1,5 +1,5 @@
 import REGL, { type Buffer, type DrawCommand, type Regl } from 'regl';
-import type { WorldRenderData } from '../types/World';
+import type { WorldRenderData } from '../types';
 import type Camera from './Camera';
 
 interface Attributes {

@@ -1,4 +1,4 @@
-import type { WorldRenderData } from '../../types/World';
+import type { WorldRenderData } from '../../types/world';
 
 export interface Layer {
     init(data: WorldRenderData): void;
