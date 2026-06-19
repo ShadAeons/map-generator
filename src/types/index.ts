@@ -10,4 +10,22 @@ export interface Colour {
     a?: number;
 }
 
-export * from './world';
+export interface MapBounds {
+    width: number;
+    height: number;
+}
+
+export interface WorldRenderData {
+    bounds: MapBounds;
+    sites: Vector[];
+    polygons: Vector[][];
+    heightmap: number[];
+}
+
+export interface WorldBuildParams {
+    bounds: MapBounds;
+    seed: number;
+    nCells: number;
+    falloffStrength: number;
+    warpStrength: number;
+}
