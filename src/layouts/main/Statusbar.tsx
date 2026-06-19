@@ -1,4 +1,4 @@
-import type { Vector } from '../types/Vector';
+import type { Vector } from '../../types';
 
 interface StatusbarProps {
     seed: number;
@@ -6,7 +6,7 @@ interface StatusbarProps {
     cells: number;
 }
 
-export default function Statusbar({ seed, pos, cells }: StatusbarProps) {
+export function Statusbar({ seed, pos, cells }: StatusbarProps) {
     return (
         <div className="flex gap-4 px-4 py-1">
             <p>Seed: {seed}</p>

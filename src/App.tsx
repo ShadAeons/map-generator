@@ -6,10 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 // Components
-import Toolbar from './components/Toolbar';
-import Canvas from './components/Canvas';
-import Statusbar from './components/Statusbar';
-import Topbar from './components/Topbar';
+import { Canvas, Statusbar, Toolbar, Topbar } from './layouts/main';
 import { MainLayout } from './layouts';
 import {
     GeneratorInspector,
@@ -18,7 +15,7 @@ import {
 } from './components/inspectors';
 
 // Hooks
-import { useWorldGenerator } from './hooks/useWorldGenerator';
+import { useWorldGenerator } from './hooks';
 
 // Types
 import type { Vector, WorldBuildParams, WorldRenderData } from './types';
@@ -28,7 +25,6 @@ export default function App() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     const [pos, setPos] = useState<Vector>({ x: 0, y: 0 });
-
     const [toolIdx, setToolIdx] = useState<number>(0);
 
     const [generatedParams, setGeneratedParams] = useState<WorldBuildParams>(

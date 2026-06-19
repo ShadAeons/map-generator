@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-import useMapRenderer from '../hooks/useMapRenderer';
-import useCanvasControls from '../hooks/useCanvasControls';
+import { useCanvasControls, useMapRenderer } from '../../hooks';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -8,8 +7,9 @@ import {
     faMinus,
     faPlus,
 } from '@fortawesome/free-solid-svg-icons';
-import type { Vector, WorldRenderData } from '../types';
-import { CANVAS_PADDING, ZOOM_FACTOR } from '../constants';
+
+import type { Vector, WorldRenderData } from '../../types';
+import { CANVAS_PADDING, ZOOM_FACTOR } from '../../constants';
 
 interface CanvasProps {
     canvasRef: React.RefObject<HTMLCanvasElement | null>;
@@ -17,11 +17,7 @@ interface CanvasProps {
     onHover?: (pos: Vector) => void;
 }
 
-export default function Canvas({
-    canvasRef,
-    renderData,
-    onHover,
-}: CanvasProps) {
+export function Canvas({ canvasRef, renderData, onHover }: CanvasProps) {
     const { rendererRef, cameraRef } = useMapRenderer(canvasRef);
     useCanvasControls(canvasRef, rendererRef, cameraRef);
 
