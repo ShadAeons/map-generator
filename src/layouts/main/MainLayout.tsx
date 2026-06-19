@@ -3,7 +3,7 @@ import {
     DEFAULT_SIDEBAR_WIDTH,
     MAX_SIDEBAR_WIDTH,
     MIN_SIDEBAR_WIDTH,
-} from '../constants';
+} from '../../constants';
 
 interface MainLayoutProps {
     toolbar: React.ReactNode;
