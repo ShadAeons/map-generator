@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
+import { MAX_SIDEBAR_WIDTH, MIN_SIDEBAR_WIDTH } from '../constants';
 
-interface LayoutProps {
+interface MainLayoutProps {
     toolbar: React.ReactNode;
     inspector: React.ReactNode;
     topbar: React.ReactNode;
@@ -8,16 +9,13 @@ interface LayoutProps {
     canvas: React.ReactNode;
 }
 
-const MIN_SIDEBAR_WIDTH = 250;
-const MAX_SIDEBAR_WIDTH = 600;
-
 export default function MainLayout({
     toolbar,
     inspector,
     topbar,
     statusbar,
     canvas,
-}: LayoutProps) {
+}: MainLayoutProps) {
     const [sidebarWidth, setSidebarWidth] = useState<number>(250);
     const dragging = useRef<boolean>(false);
 
