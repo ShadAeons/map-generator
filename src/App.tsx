@@ -7,7 +7,6 @@ import {
 
 // Components
 import { Canvas, Statusbar, Toolbar, Topbar } from './layouts/main';
-import { MainLayout } from './layouts';
 import {
     GeneratorInspector,
     SaveInspector,
@@ -20,6 +19,7 @@ import { useWorldGenerator } from './hooks';
 // Types
 import type { Vector, WorldBuildParams, WorldRenderData } from './types';
 import { DEFAULT_WORLD_BUILD_PARAMS } from './constants';
+import MainLayout from './layouts/main/MainLayout';
 
 export default function App() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
