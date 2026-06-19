@@ -5,6 +5,7 @@ export const UINT32_MAX = Math.pow(2, 32) - 1;
 
 export const MIN_SIDEBAR_WIDTH = 250;
 export const MAX_SIDEBAR_WIDTH = 600;
+export const DEFAULT_SIDEBAR_WIDTH = 250;
 
 export const ZOOM_FACTOR = 1.12;
 export const CANVAS_PADDING = 40;

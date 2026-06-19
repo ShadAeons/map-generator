@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { MAX_SIDEBAR_WIDTH, MIN_SIDEBAR_WIDTH } from '../constants';
+import {
+    DEFAULT_SIDEBAR_WIDTH,
+    MAX_SIDEBAR_WIDTH,
+    MIN_SIDEBAR_WIDTH,
+} from '../constants';
 
 interface MainLayoutProps {
     toolbar: React.ReactNode;
@@ -16,7 +20,9 @@ export default function MainLayout({
     statusbar,
     canvas,
 }: MainLayoutProps) {
-    const [sidebarWidth, setSidebarWidth] = useState<number>(250);
+    const [sidebarWidth, setSidebarWidth] = useState<number>(
+        DEFAULT_SIDEBAR_WIDTH
+    );
     const dragging = useRef<boolean>(false);
 
     useEffect(() => {
