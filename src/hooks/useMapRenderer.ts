@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import MapRenderer from '../renderer/MapRenderer';
 import Camera from '../renderer/Camera';
 
-export default function useMapRenderer(
+export function useMapRenderer(
     canvasRef: React.RefObject<HTMLCanvasElement | null>
 ) {
     const rendererRef = useRef<MapRenderer>(null);

@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import type Camera from '../renderer/Camera';
 import type MapRenderer from '../renderer/MapRenderer';
-import type { Vector } from '../types/Vector';
+import type { Vector } from '../types';
 import { ZOOM_FACTOR } from '../constants';
 
-export default function useCanvasControls(
+export function useCanvasControls(
     canvasRef: React.RefObject<HTMLCanvasElement | null>,
     rendererRef: React.RefObject<MapRenderer | null>,
     cameraRef: React.RefObject<Camera | null>
