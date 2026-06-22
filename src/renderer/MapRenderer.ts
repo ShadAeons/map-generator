@@ -14,19 +14,6 @@ interface Uniforms {
     u_resolution: [number, number];
 }
 
-// const ELEVATION_STYLES: {
-//     threshold: number;
-//     colour: [number, number, number];
-// }[] = [
-//     { threshold: 0.3, colour: [42 / 255, 107 / 255, 156 / 255] },
-//     { threshold: 0.4, colour: [58 / 255, 143 / 255, 191 / 255] },
-//     { threshold: 0.45, colour: [194 / 255, 162 / 255, 88 / 255] },
-//     { threshold: 0.6, colour: [90 / 255, 143 / 255, 60 / 255] },
-//     { threshold: 0.75, colour: [61 / 255, 107 / 255, 40 / 255] },
-//     { threshold: 0.9, colour: [122 / 255, 106 / 255, 90 / 255] },
-//     { threshold: 1.0, colour: [232 / 255, 232 / 255, 232 / 255] },
-// ];
-
 export default class MapRenderer {
     private _canvas: HTMLCanvasElement;
     private _regl: Regl;
