@@ -24,7 +24,7 @@ import MainLayout from './layouts/main/MainLayout';
 export default function App() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
-    const [pos, setPos] = useState<Vector>({ x: 0, y: 0 });
+    const [pos, setPos] = useState<Vector | null>(null);
     const [toolIdx, setToolIdx] = useState<number>(0);
 
     const [generatedParams, setGeneratedParams] = useState<WorldBuildParams>(
@@ -74,6 +74,18 @@ export default function App() {
         [handleGenerate]
     );
 
+    const handleMapHover = (p: Vector) => {
+        if (!renderData) return;
+        if (
+            p.x < 0 ||
+            p.y < 0 ||
+            p.x >= renderData.bounds.width ||
+            p.y >= renderData.bounds.height
+        )
+            return setPos(null);
+        setPos(p);
+    };
+
     return (
         <>
             {loading && <div>Loading</div>}
@@ -100,7 +112,7 @@ export default function App() {
                     <Canvas
                         canvasRef={canvasRef}
                         renderData={renderData}
-                        onHover={(p) => setPos(p)}
+                        onMapHover={handleMapHover}
                     />
                 }
             />

@@ -14,10 +14,15 @@ import { CANVAS_PADDING, ZOOM_FACTOR } from '../../constants';
 interface CanvasProps {
     canvasRef: React.RefObject<HTMLCanvasElement | null>;
     renderData: WorldRenderData | null;
-    onHover?: (pos: Vector) => void;
+    onMapHover?: (pos: Vector) => void;
+    onMapClick?: (pos: Vector) => void;
 }
 
-export function Canvas({ canvasRef, renderData, onHover }: CanvasProps) {
+export function Canvas({
+    canvasRef,
+    renderData,
+    onMapHover: onHover,
+}: CanvasProps) {
     const { rendererRef, cameraRef } = useMapRenderer(canvasRef);
     useCanvasControls(canvasRef, rendererRef, cameraRef);
 
@@ -76,13 +81,16 @@ export function Canvas({ canvasRef, renderData, onHover }: CanvasProps) {
     };
 
     const handleHover = (e: React.PointerEvent) => {
-        if (!canvasRef.current) return;
+        if (!canvasRef.current || !cameraRef.current) return;
+        const camera = cameraRef.current;
 
         const rect = canvasRef.current.getBoundingClientRect();
-        onHover?.({
-            x: e.clientX - rect.left,
-            y: e.clientY - rect.top,
-        });
+        onHover?.(
+            camera.toWorldPosition({
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top,
+            })
+        );
     };
 
     return (
