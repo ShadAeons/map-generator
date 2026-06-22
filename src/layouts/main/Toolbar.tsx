@@ -16,15 +16,16 @@ interface ToolbarProps {
 
 export function Toolbar({ tools, currentTool, onToolChange }: ToolbarProps) {
     return (
-        <div className="flex flex-col gap-2 bg-navy-mid px-1 py-2 border-border border-r h-full">
+        <div className="flex flex-col gap-2 px-1 py-2 h-full">
             {tools.map((t, i) => {
                 return (
                     <div
                         key={t.label}
                         className={clsx(
                             'relative rounded-full size-10',
-                            currentTool === i && 'text-gold',
-                            currentTool !== i && 'hover:bg-navy-light'
+                            currentTool === i &&
+                                'text-accent border border-accent bg-accent/15',
+                            currentTool !== i && 'hover:bg-neutral-dark'
                         )}
                         onClick={() => onToolChange(i)}
                     >

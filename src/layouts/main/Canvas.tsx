@@ -94,21 +94,21 @@ export function Canvas({ canvasRef, renderData, onHover }: CanvasProps) {
                 onPointerMove={handleHover}
             ></canvas>
 
-            <div className="right-4 bottom-4 absolute flex flex-col bg-navy-mid border border-border rounded-md overflow-hidden">
+            <div className="right-4 bottom-4 absolute flex flex-col bg-neutral-darker border border-border rounded-md overflow-hidden">
                 <button
-                    className="hover:bg-navy-light size-8"
+                    className="hover:bg-neutral-dark size-8"
                     onClick={resetView}
                 >
                     <FontAwesomeIcon icon={faArrowsToEye} />
                 </button>
                 <button
-                    className="hover:bg-navy-light size-8"
+                    className="hover:bg-neutral-dark size-8"
                     onClick={() => handleZoom(ZOOM_FACTOR)}
                 >
                     <FontAwesomeIcon icon={faPlus} />
                 </button>
                 <button
-                    className="hover:bg-navy-light size-8"
+                    className="hover:bg-neutral-dark size-8"
                     onClick={() => handleZoom(1 / ZOOM_FACTOR)}
                 >
                     <FontAwesomeIcon icon={faMinus} />

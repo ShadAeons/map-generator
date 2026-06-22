@@ -4,6 +4,6 @@
 
 html,
 body {
-    background: var(--color-navy);
-    color: var(--color-pale-aqua);
+    background: var(--color-neutral-darker);
+    color: var(--color-text-primary);
 }

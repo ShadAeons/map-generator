@@ -60,16 +60,15 @@ export default function MainLayout({
             className="grid grid-rows-[auto_1fr_auto] w-screen h-screen font-inter"
             style={{ gridTemplateColumns: `auto 1fr ${sidebarWidth}px` }}
         >
-            <div className="col-span-3 bg-navy-mid border-border border-b">
-                {/* <h3>Filename</h3> */}
+            <div className="col-span-3 bg-neutral-darker border-b">
                 {topbar}
             </div>
 
-            {toolbar}
+            <div className="bg-neutral-darker border-r">{toolbar}</div>
 
             <div className="w-full h-full min-h-0">{canvas}</div>
 
-            <div className="relative col-start-3 bg-navy-mid p-4 border-border border-l">
+            <div className="relative col-start-3 bg-neutral-darker p-4 border-l">
                 {inspector}
 
                 <div
@@ -78,7 +77,7 @@ export default function MainLayout({
                 ></div>
             </div>
 
-            <div className="col-span-3 bg-navy-mid border-border border-t text-xs">
+            <div className="col-span-3 bg-neutral-darker border-t-1 text-xs">
                 {statusbar}
             </div>
         </div>
