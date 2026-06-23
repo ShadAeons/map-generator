@@ -77,7 +77,7 @@ export default function MainLayout({
                 ></div>
             </div>
 
-            <div className="col-span-3 bg-neutral-darker border-t-1 text-xs">
+            <div className="col-span-3 bg-neutral-darker border-t text-xs">
                 {statusbar}
             </div>
         </div>
