@@ -51,11 +51,6 @@ export default function App() {
     const tools = useMemo(
         () => [
             {
-                label: 'Select',
-                icon: faArrowPointer,
-                inspector: <SelectInspector />,
-            },
-            {
                 label: 'Generator',
                 icon: faPlus,
                 inspector: (
@@ -64,11 +59,6 @@ export default function App() {
                         onGenerate={handleGenerate}
                     />
                 ),
-            },
-            {
-                label: 'Save',
-                icon: faFloppyDisk,
-                inspector: <SaveInspector />,
             },
         ],
         [handleGenerate]
