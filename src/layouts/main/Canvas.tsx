@@ -21,7 +21,8 @@ interface CanvasProps {
 export function Canvas({
     canvasRef,
     renderData,
-    onMapHover: onHover,
+    onMapHover,
+    onMapClick,
 }: CanvasProps) {
     const { rendererRef, cameraRef } = useMapRenderer(canvasRef);
     useCanvasControls(canvasRef, rendererRef, cameraRef);
@@ -80,12 +81,25 @@ export function Canvas({
         renderer.render();
     };
 
-    const handleHover = (e: React.PointerEvent) => {
+    const handleMapHover = (e: React.PointerEvent) => {
         if (!canvasRef.current || !cameraRef.current) return;
         const camera = cameraRef.current;
 
         const rect = canvasRef.current.getBoundingClientRect();
-        onHover?.(
+        onMapHover?.(
+            camera.toWorldPosition({
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top,
+            })
+        );
+    };
+
+    const handleMapClick = (e: React.PointerEvent) => {
+        if (!canvasRef.current || !cameraRef.current) return;
+        const camera = cameraRef.current;
+
+        const rect = canvasRef.current.getBoundingClientRect();
+        onMapClick?.(
             camera.toWorldPosition({
                 x: e.clientX - rect.left,
                 y: e.clientY - rect.top,
@@ -99,7 +113,8 @@ export function Canvas({
                 ref={canvasRef}
                 className="w-full h-full"
                 onContextMenu={(e) => e.preventDefault()}
-                onPointerMove={handleHover}
+                onPointerMove={handleMapHover}
+                onPointerUp={handleMapClick}
             ></canvas>
 
             <div className="right-4 bottom-4 absolute flex flex-col bg-neutral-darker border border-border rounded-md overflow-hidden">
