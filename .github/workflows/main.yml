@@ -1,4 +1,4 @@
-name: "Deploy to GitHub Pages"
+name: 'Deploy to GitHub Pages'
 on:
     push:
         branches:
@@ -16,15 +16,19 @@ jobs:
               with:
                   version: 'latest'
 
-            # Compile C++ to Wasm
             - name: Configure Wasm
               run: cmake --preset emscripten
 
             - name: Compile Wasm
               run: cmake --build --preset emscripten
-            
+
+            # Setup frontend
+            - name: Install dependencies
+              run: npm ci
+
             - name: Build
               run: npm run build
+
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
