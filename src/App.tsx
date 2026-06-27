@@ -1,17 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import {
-    faArrowPointer,
-    faFloppyDisk,
-    faPlus,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 // Components
 import { Canvas, Statusbar, Toolbar, Topbar } from './layouts/main';
-import {
-    GeneratorInspector,
-    SaveInspector,
-    SelectInspector,
-} from './components/inspectors';
+import { GeneratorInspector } from './components/inspectors';
 
 // Hooks
 import { useWorldGenerator } from './hooks';
